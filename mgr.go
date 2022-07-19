@@ -4,6 +4,7 @@ import (
 	"container/list"
 	"github.com/lxn/walk"
 	"github.com/lxn/win"
+	"log"
 	"time"
 )
 
@@ -137,6 +138,26 @@ func (m *WinResMgr) LabelLeft(text string) *walk.Label {
 
 	m.addObj(ne)
 	return ne
+}
+
+func (m *WinResMgr) BoldFont(family string, fontSize int) *walk.Font {
+	fe, err := walk.NewFont(family, fontSize, walk.FontBold)
+
+	if err != nil {
+		log.Panic(err)
+	}
+
+	return fe
+}
+
+func (m *WinResMgr) UnderlineFont(family string, fontSize int) *walk.Font {
+	fe, err := walk.NewFont(family, fontSize, walk.FontUnderline)
+
+	if err != nil {
+		log.Panic(err)
+	}
+
+	return fe
 }
 
 func (m *WinResMgr) PushButtonSimple(text string) *walk.PushButton {
